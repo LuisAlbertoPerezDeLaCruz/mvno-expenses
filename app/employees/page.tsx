@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { EmployeeExpense } from '@/types';
 import { apiClient } from '@/lib/api';
 import { DateDisplay } from '@/components/ui/date-display';
@@ -37,36 +36,18 @@ export default function EmployeesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center">
-              <Link href="/" className="text-blue-600 hover:text-blue-700 no-underline">
-                <h1 className="text-2xl font-bold">MVNO Expenses</h1>
-              </Link>
-            </div>
-            <div className="flex space-x-4">
-              <Link href="/" className="text-gray-700 hover:text-blue-600">Inicio</Link>
-              <Link href="/dashboard" className="text-gray-700 hover:text-blue-600">Dashboard</Link>
-              <Link href="/suppliers" className="text-gray-700 hover:text-blue-600">Proveedores</Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-6">
-      {/* Header */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">Gastos de Empleados</h1>
-          <p className="text-gray-600">Gestiona y aprueba los gastos de los empleados</p>
-        </div>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
-          Nuevo Gasto
-        </button>
-      </div>
+          {/* Header */}
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">Gastos de Empleados</h1>
+              <p className="text-gray-600">Gestiona y aprueba los gastos de los empleados</p>
+            </div>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+              Nuevo Gasto
+            </button>
+          </div>
 
       {/* Filtros */}
       <div className="bg-white p-4 rounded-lg shadow">
