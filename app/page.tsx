@@ -1,4 +1,4 @@
-'use client';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -8,15 +8,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
-              <a href="/" className="text-blue-600 hover:text-blue-700 no-underline">
+              <Link href="/" className="text-blue-600 hover:text-blue-700 no-underline">
                 <h1 className="text-2xl font-bold">MVNO Expenses</h1>
-              </a>
+              </Link>
             </div>
             <div className="flex space-x-4">
-              <a href="/" className="text-gray-700 hover:text-blue-600 font-medium">Inicio</a>
-              <a href="/dashboard" className="text-gray-700 hover:text-blue-600">Dashboard</a>
-              <a href="/employees" className="text-gray-700 hover:text-blue-600">Empleados</a>
-              <a href="/suppliers" className="text-gray-700 hover:text-blue-600">Proveedores</a>
+              <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium">Inicio</Link>
+              <Link href="/dashboard" className="text-gray-700 hover:text-blue-600">Dashboard</Link>
+              <Link href="/employees" className="text-gray-700 hover:text-blue-600">Empleados</Link>
+              <Link href="/suppliers" className="text-gray-700 hover:text-blue-600">Proveedores</Link>
             </div>
           </div>
         </div>

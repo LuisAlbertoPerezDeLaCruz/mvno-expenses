@@ -1,10 +1,24 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { DateDisplay } from '@/components/ui/date-display';
 
+type InvoiceStatus = 'pending' | 'paid' | 'overdue';
+
+interface Invoice {
+  id: string;
+  supplierName: string;
+  invoiceNumber: string;
+  amount: number;
+  description: string;
+  date: Date;
+  dueDate: Date;
+  status: InvoiceStatus;
+}
+
 export default function SuppliersPage() {
-  const [invoices] = useState([
+  const [invoices] = useState<Invoice[]>([
     {
       id: '1',
       supplierName: 'Proveedor A',
@@ -13,7 +27,7 @@ export default function SuppliersPage() {
       description: 'Servicios de telecomunicaciones',
       date: new Date('2024-01-15'),
       dueDate: new Date('2024-02-15'),
-      status: 'pending' as const,
+      status: 'pending',
     },
     {
       id: '2',
@@ -23,7 +37,7 @@ export default function SuppliersPage() {
       description: 'Equipos de oficina',
       date: new Date('2024-01-10'),
       dueDate: new Date('2024-02-10'),
-      status: 'paid' as const,
+      status: 'overdue',
     },
   ]);
 
@@ -34,14 +48,14 @@ export default function SuppliersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
-              <a href="/" className="text-blue-600 hover:text-blue-700 no-underline">
+              <Link href="/" className="text-blue-600 hover:text-blue-700 no-underline">
                 <h1 className="text-2xl font-bold">MVNO Expenses</h1>
-              </a>
+              </Link>
             </div>
             <div className="flex space-x-4">
-              <a href="/" className="text-gray-700 hover:text-blue-600">Inicio</a>
-              <a href="/dashboard" className="text-gray-700 hover:text-blue-600">Dashboard</a>
-              <a href="/employees" className="text-gray-700 hover:text-blue-600">Empleados</a>
+              <Link href="/" className="text-gray-700 hover:text-blue-600">Inicio</Link>
+              <Link href="/dashboard" className="text-gray-700 hover:text-blue-600">Dashboard</Link>
+              <Link href="/employees" className="text-gray-700 hover:text-blue-600">Empleados</Link>
             </div>
           </div>
         </div>
