@@ -34,7 +34,25 @@ export default function EmployeesPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
+            <div className="flex items-center">
+              <h1 className="text-2xl font-bold text-blue-600">MVNO Expenses</h1>
+            </div>
+            <div className="flex space-x-4">
+              <a href="/" className="text-gray-700 hover:text-blue-600">Inicio</a>
+              <a href="/dashboard" className="text-gray-700 hover:text-blue-600">Dashboard</a>
+              <a href="/suppliers" className="text-gray-700 hover:text-blue-600">Proveedores</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
@@ -101,7 +119,7 @@ export default function EmployeesPage() {
               <tr key={expense.id}>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
-                    <div className="h-10 w-10 flex-shrink-0">
+                    <div className="h-10 w-10 shrink-0">
                       <div className="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
                         <span className="text-sm font-medium">E</span>
                       </div>
@@ -126,7 +144,10 @@ export default function EmployeesPage() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">
-                    {expense.date.toLocaleDateString()}
+                    {typeof expense.date === 'string' 
+                      ? new Date(expense.date).toLocaleDateString()
+                      : expense.date.toLocaleDateString()
+                    }
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
@@ -161,6 +182,8 @@ export default function EmployeesPage() {
           </tbody>
         </table>
       </div>
+        </div>
+      </main>
     </div>
   );
 }
