@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { DateDisplay } from '@/components/ui/date-display';
 
 export default function SuppliersPage() {
   const [invoices] = useState([
@@ -130,14 +131,10 @@ export default function SuppliersPage() {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        {new Date(invoice.date).toLocaleDateString()}
-                      </div>
+                      <DateDisplay date={invoice.date} className="text-sm text-gray-900" />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        {new Date(invoice.dueDate).toLocaleDateString()}
-                      </div>
+                      <DateDisplay date={invoice.dueDate} className="text-sm text-gray-900" />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${

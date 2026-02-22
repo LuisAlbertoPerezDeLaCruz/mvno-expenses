@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { EmployeeExpense } from '@/types';
 import { apiClient } from '@/lib/api';
+import { DateDisplay } from '@/components/ui/date-display';
 
 export default function EmployeesPage() {
   const [expenses, setExpenses] = useState<EmployeeExpense[]>([]);
@@ -143,12 +144,7 @@ export default function EmployeesPage() {
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {typeof expense.date === 'string' 
-                      ? new Date(expense.date).toLocaleDateString()
-                      : expense.date.toLocaleDateString()
-                    }
-                  </div>
+                  <DateDisplay date={expense.date} className="text-sm text-gray-900" />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${

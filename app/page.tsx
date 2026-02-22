@@ -1,7 +1,5 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -12,9 +10,12 @@ export default function Home() {
             <div className="flex items-center">
               <h1 className="text-2xl font-bold text-blue-600">MVNO Expenses</h1>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              <a href="/dashboard">Ir al Dashboard</a>
-            </Button>
+            <div className="flex space-x-4">
+              <a href="/" className="text-gray-700 hover:text-blue-600 font-medium">Inicio</a>
+              <a href="/dashboard" className="text-gray-700 hover:text-blue-600">Dashboard</a>
+              <a href="/employees" className="text-gray-700 hover:text-blue-600">Empleados</a>
+              <a href="/suppliers" className="text-gray-700 hover:text-blue-600">Proveedores</a>
+            </div>
           </div>
         </div>
       </header>
@@ -28,38 +29,6 @@ export default function Home() {
           <p className="text-xl text-gray-600 mb-8">
             Prueba de concepto para gestión de gastos de empleados y proveedores con integración ERP
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer">
-              <h3 className="text-lg font-semibold mb-2">Módulo Empleados</h3>
-              <p className="text-gray-600 mb-4">Control de gastos con límites y aprobaciones automáticas</p>
-              <ul className="text-sm text-gray-500 space-y-1 mb-4">
-                <li>• Límites personalizables</li>
-                <li>• Aprobación automática &gt; $500</li>
-                <li>• Soporte documental</li>
-              </ul>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                <a href="/employees" className="text-white no-underline">Ir a Empleados</a>
-              </Button>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer">
-              <h3 className="text-lg font-semibold mb-2">Módulo Proveedores</h3>
-              <p className="text-gray-600 mb-4">Gestión de facturas y documentos de proveedores</p>
-              <ul className="text-sm text-gray-500 space-y-1 mb-4">
-                <li>• Validación de documentos</li>
-                <li>• Control de vencimientos</li>
-                <li>• Sincronización ERP</li>
-              </ul>
-              <Button className="w-full" variant="outline">
-                <a href="/suppliers">Ir a Proveedores</a>
-              </Button>
-            </div>
-          </div>
-
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3">
-            <a href="/dashboard">Probar Dashboard Demo</a>
-          </Button>
         </div>
       </main>
     </div>
